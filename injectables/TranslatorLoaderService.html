@@ -219,18 +219,20 @@ private translateService: TranslatorLoaderService = this.injector.get(Translator
                 <td class="col-md-4">
                     <div class="io-description"><p>Retrieves translated labels based on current user&#39;s locale.</p>
 <h3 id="example">Example:</h3>
-<div><pre class="line-numbers"><code class="language-typescript">import { TranslatorLoaderService, object } from &#39;&#64;congarevenuecloud/ecommerce&#39;;
-import { Observable } from &#39;rxjs/Observable&#39;;
+<div><pre class="line-numbers"><code class="language-typescript"> import { TranslatorLoaderService, object } from &#39;&#64;congarevenuecloud/ecommerce&#39;;
+ import { Observable } from &#39;rxjs/Observable&#39;;
 
-export class MyComponent implements OnInit{
-translations$:Observable&lt;object&gt;
-translations:object
-constructor(private translatorLoaderService: TranslatorLoaderService){}
+ export class MyComponent implements OnInit {
+     translations$:Observable&lt;object&gt;
+     translations:object
 
-getTranslation(locale: string){
-this.translations$ = this.translatorLoaderService.getTranslation(locale);
-//or
-this.translatorLoaderService.getTranslation(locale).subscribe(c=&gt; this.translations= c);
+     constructor(private translatorLoaderService: TranslatorLoaderService){}
+
+       getTranslation(locale: string) {
+           this.translations$ = this.translatorLoaderService.getTranslation(locale);
+           //or
+           this.translatorLoaderService.getTranslation(locale).subscribe(c=&gt; this.translations= c);
+        }
 }</code></pre></div><p>The default value is set to 2500.</p>
 </div>
 
